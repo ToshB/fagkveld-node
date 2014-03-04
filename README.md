@@ -176,6 +176,7 @@ Opprette konto først, og sett opp git credentials. Men etter det er det rett fr
 
 ```
 azure site create webstepfagkveld --git
+git commit -am "Added azure settings"
 git push azure master
 ```
 
