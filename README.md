@@ -172,7 +172,7 @@ Flytt noe logikk inn i en fil
 
 #### Node.js deploy til Azure
 
-Opprette konto først, og sett opp git credentials. Men etter det er det rett frem. Må først installere azure-cli, kan gjøres kjapt med `npm install azure-cli`. Deretter må man opprette azure website, og så pushe katalogen.
+Opprette konto først, og sett opp git credentials. Men etter det er det rett frem. Må først installere azure-cli, kan gjøres kjapt med `npm install azure-cli`, noe jeg ikke trenger nå. Deretter må man opprette azure website, og så pushe katalogen.
 
 ```
 azure site create webstepfagkveld --git
