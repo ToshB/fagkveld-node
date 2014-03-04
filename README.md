@@ -25,11 +25,11 @@ http://www.thoughtworks.com/radar/#/platforms/280
 
 Node.js dukket i januar 2011 opp på Thoughtwork's techradar, og ble i januar i år endret til statusen Adopt, som betyr at de mener at man kan begynne å ta det i bruk, hvis man har applikasjoner som tar nytte av fordelene det gir.
 
-Mange store selskaper har hatt suksess med Node.js, blant annet LinkedIn, eBay, Walmart, Groupon, Netflix, HBO. Selv Microsoft har etter hvert begynt å tilby god støtte for Node.js i Visual Studio, bruker det internt, og har bidratt ressurser til Windows-porten av Node.js.
+Mange store selskaper har hatt suksess med Node.js, blant annet LinkedIn, eBay, Walmart, Groupon, Netflix, HBO. Selv Microsoft har etter hvert begynt å tilby god støtte for Node.js i Visual Studio, bruker det internt, og har bidratt ressurser til Windows-porten av Node.js. Det siste er at Paypal og Netflix nå også kaster seg på bølgen, og ønsker å flytte over ting fra Java til Node.
 
-I dag ønsker vi å gi dere en introduksjon til to måter dere kan begynne å ta i bruk Node.js. Den første er å benytte Node.js for å kjøre egen JavaScript-kode, i første omgang for de fleste av oss kanskje mest aktuelt for testing, prototyping eller utprøving til enkle løsninger. Den andre måten, som flere og flere allerede har begynt å gjøre, er å bruke verktøy som Grunt og Bower, som begge baserer seg på Node.js, i utviklingsprosessen. Det er en fin måte å bli mer kjent med Node.js, uten at det får direkte konsekvenser hvordan utviklerne jobber til daglig, og hvordan applikasjonen etterhvert blir hostet.
+I dag ønsker vi at dere skal gå herfra med litt kunnskap om hvordan dere kan begynne å leke med Node.js. Den ene måten er å benytte Node.js for å kjøre egen JavaScript-kode, i første omgang for de fleste av oss kanskje mest aktuelt for testing, prototyping eller utprøving til enkle løsninger. Den andre måten som flere og flere allerede har begynt å gjøre, er å bruke verktøy som Grunt og Bower, som begge baserer seg på Node.js, i utviklingsprosessen. Det er en fin måte å bli mer kjent med Node.js, uten at det får direkte konsekvenser hvordan utviklerne jobber til daglig, og hvordan applikasjonen etterhvert blir hostet.
 
-Til slutt skal David gi en innføring til testing av JavaScript, noe som forsåvidt har vært aktuelt en god stund, men som nå blir enda mer aktuelt, når man begynner å skrive mer av forretningslogikken, også serverside, i JavaScript.
+Jeg skal starte med å fortelle om Node og NPM, og kjapt vise deployment til Azure om det blir tid. Etter det skal Olav fortsette med Grunt og Bower, før Henning forteller om streams i Node og hvordan det brukes i Gulp. Til slutt skal David demonstrere hvor enkelt man kan komme igang med testing i JavaScript i Visual Studio og TeamCity.
 
 Node.js
 =======
@@ -91,7 +91,12 @@ if (request.url == '/') {
 ```
 
 #### npm
-Men nå begynner ting å bli litt grøtete her.. La oss dra inn et rammeverk for å gjøre det enklere å lage en liten webserver. Express! `npm install express --save`
+Men nå begynner ting å bli litt grøtete her.. La oss dra inn et rammeverk for å gjøre det enklere å lage en liten webserver. Express!
+
+```
+npm init
+npm install express --save
+```
 
 server.js:
 ```javascript
@@ -154,30 +159,16 @@ app.get('/aww', requestHandler.image);
 
 Vis frem at det funker, og forklar hvorfor den koden ikke er såå smooth, da den må laste bildet opp i minnet før den kan sende det. Og at Henning skal vise mer om pipes senere.
 
-
-
-#### Require fil
-Flytt noe logikk inn i en fil
-
-- Vise REPL, at man der kan kjøre console.log, og definere funksjoner
-- Putt funksjonene i server.js
-- Vise REPL
-- Kjøring fra fil
-/*- Require annen fil og kjøre*/
-- Dra ut funksjonalitet i NPM-pakke
-- Kjøre i IIS (Forklare hvorfor, ulemper?)
-- Kjøre i Azure
-
-
-
 #### Node.js deploy til Azure
 
-Opprette konto først, og sett opp git credentials. Men etter det er det rett frem. Må først installere azure-cli, kan gjøres kjapt med `npm install azure-cli`, noe jeg ikke trenger nå. Deretter må man opprette azure website, og så pushe katalogen.
+For at dette skal funke må man gjøre et engangsoppsett av konto i azure, konfigurere passord for git. Men etter det er det rett frem. Må først installere azure-cli, kan gjøres kjapt med `npm install azure-cli`, noe jeg ikke trenger nå. Deretter må man opprette azure website, og så pushe katalogen.
+
+HUSK Å OPPDATERE PORT til `process.env.PORT`.
 
 ```
 azure site create webstepfagkveld --git
-git commit -am "Added azure settings"
 git push azure master
+azure site browse (eller bare åpne i browser)
 ```
 
 #### Nyttige lenker
