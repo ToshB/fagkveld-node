@@ -1,6 +1,11 @@
-var http = require('http')
-var port = process.env.PORT || 1337;
-http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World\n');
-}).listen(port);
+var express = require('express');
+var app = express();
+var requestHandler = require('./handler');
+var port = 8080;
+
+app.get('/', requestHandler.hello);
+app.get('/hi', requestHandler.hi);
+app.get('/aww', requestHandler.image);
+app.listen(port);
+
+console.log('Server listening on http://localhost:'+port);
