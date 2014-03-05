@@ -3,45 +3,29 @@ Fagkveld Webstep 3. mars 2014
 Introduksjon
 ============
 
-Hvorfor er JavaScript hot? Hva er greia med Nodejs?
+Hei, og velkommen til åpen fagkveld her hos Webstep. Veldig kult at så mange hadde anledning og lyst til å komme, selv om dere fikk vite på forhånd hva vi skulle snakke om :)
 
-### Technology Radar January 2014
+I morgen er det nøyaktig ett år siden vi hadde en åpen fagkveld med tema JavaScript. Den gangen gikk vi også igjennom noen ulike verktøy og teknikker, men da var fokuset på nettleseren og ikke noe på Node. På det året er det veldig mye som har skjedd som gjør JavaScript mer aktuelt på serversiden.
 
-#### Node.js - Adopt
+Etter at Ryan Dahl presenterte første versjon av Node.js i 2011 er det veldig mange rundt omkring som har lekt seg med Node.js for å finne ut hva man egentlig kan gjøre med det, og det siste året har det helt tatt av når det kommer til tooling for utviklere og mer avanserte workflows når man utvikler i JavaScript, både for klienten og på serversiden. Vi skal prøve å dekke litt av dette i kveld.
 
-http://www.thoughtworks.com/radar/#/platforms/280
+La meg først bare fortelle litt om hva Node.js er, og hva det er som gjør det ganske forskjellig fra andre utviklingsplattformer. Hjemmesiden til Node sier det som står her
+> Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
 
-> Node.js is a lightweight web container that is a strong option for development of micro services and as a server to mobile and single-page web applications. Due to the asynchronous nature of node.js, developers are turning to promise libraries to simplify their application code. As the use of promises mature within the node.js community, we expect to see more applications developed for node.js. For those teams that are reluctant to try node.js in production, it is still worthwhile to consider node.js for development tasks like running JavaScript tests outside of the browser or generating static web content from tools like CoffeeScript, SASS, and LESS.
+Det viktige her er at Node.js bruker en event-drevet, ikke-blokkerende I/O-modell, likt hva vi er vant med fra JavaScript på klientsiden. I Node er altså alle operasjoner ikke-blokkerende, dette inkluderer nettverks- , database- og til og med fil-aksess. Dette gjør at det er veldig godt egnet til å bygge web-tjenester som trenger høy grad av skalerbarhet, siden det klarer å ta unna veldig høy last med relativt sett lav grad av ressursbruk. Det som også er interessant er at det er event-drevet, så koden din kjører som en eneste event-loop, og du slipper å forholde deg til multithreading og alle morsomme problemer som dukker opp i forbindelse med det.
 
-#### Yeoman - Assess
+Det som også gjør at Node er veldig godt egnet til å lage verktøy, som strengt tatt ikke trenger den samme skalerbarheten, er at Node-runtimen kjører på Linux, OSX og Windows, og selv om det finnes noen få unntak, er veldig mye skrevet for å kjøre på alle plattformer. Så mens verktøy skrevet i f.eks Ruby tidligere har vært litt knot å bruke for Windowsutviklere kan man med Node nå lett dele på verktøy og erfaringer mellom utviklere uavhengig av plattform!
 
-> Yeoman attempts to make web application developers more productive by simplifying activities like scaffold, build and package management. It is a collection of the tools Yo, Grunt and Bower that work well as a set.
+Det er mange selskap som har gått ut og annonsert at de bruker Node, eller ønsker å begynne å bruke Node, et lite utvalg av disse står på veggen.
+> LinkedIn, eBay, Walmart, Groupon, Netflix, HBO, Microsoft, Paypal, Netflix.
+> I tillegg ser vi jo Webstep helt nederst til høyre der.
 
-#### Grunt.js - Trial
+I tillegg kan det være verdt å nevne at Thoughtworks, som hvert kvartal lanserer sin Technology Radar, siden 2011 har plassert Node.js i kategoriene Assess, Trial, og nå senest i Januar i kategorien Adopt. Og som vi ser på veggen,SLIDE foreslår de å bruke Node.js til utviklingstasks hvis man ikke føler seg helt klar for å bruke Node.js i produksjon.
 
-> Several of our ThoughtWorks teams developing Node.js apps are using Grunt to automate most of the development activities like minification, compilation, and linting. Many of the common tasks are available as Grunt plugins. You can even programmatically generate the configuration if necessary.
-
-### Introduksjon
-
-Node.js dukket i januar 2011 opp på Thoughtwork's techradar, og ble i januar i år endret til statusen Adopt, som betyr at de mener at man kan begynne å ta det i bruk, hvis man har applikasjoner som tar nytte av fordelene det gir.
-
-Mange store selskaper har hatt suksess med Node.js, blant annet LinkedIn, eBay, Walmart, Groupon, Netflix, HBO. Selv Microsoft har etter hvert begynt å tilby god støtte for Node.js i Visual Studio, bruker det internt, og har bidratt ressurser til Windows-porten av Node.js. Det siste er at Paypal og Netflix nå også kaster seg på bølgen, og ønsker å flytte over ting fra Java til Node.
-
-I dag ønsker vi at dere skal gå herfra med litt kunnskap om hvordan dere kan begynne å leke med Node.js. Den ene måten er å benytte Node.js for å kjøre egen JavaScript-kode, i første omgang for de fleste av oss kanskje mest aktuelt for testing, prototyping eller utprøving til enkle løsninger. Den andre måten som flere og flere allerede har begynt å gjøre, er å bruke verktøy som Grunt og Bower, som begge baserer seg på Node.js, i utviklingsprosessen. Det er en fin måte å bli mer kjent med Node.js, uten at det får direkte konsekvenser hvordan utviklerne jobber til daglig, og hvordan applikasjonen etterhvert blir hostet.
-
-Jeg skal starte med å fortelle om Node og NPM, og kjapt vise deployment til Azure om det blir tid. Etter det skal Olav fortsette med Grunt og Bower, før Henning forteller om streams i Node og hvordan det brukes i Gulp. Til slutt skal David demonstrere hvor enkelt man kan komme igang med testing i JavaScript i Visual Studio og TeamCity.
+Planen for kvelden er at jeg nå skal vise dere litt hvordan dere kan komme igang med Node.js og npm selv, og kjapt vise deployment til Azure om det blir tid. Etter det skal Olav fortsette med Grunt og Bower, før Henning forteller om streams i Node og hvordan det brukes i Gulp. Til slutt skal David demonstrere hvor enkelt man kan komme igang med testing i JavaScript i Visual Studio og TeamCity.
 
 Node.js
 =======
-
-### Hva er egentlig Node.js?
-
-Som tatt ut fra websidene til Node, Node.js er en plattform bygd på Chromes JavaScript runtime for å enkelt kunne bygge raske og skalerbare nettverksapplikasjoner. Node.js bruker en event-drevet, ikke-blokkende I/O-modell som gjør det lettvekts og enkelt, perfekt for data-intensive sanntidsapplikasjoner som kjører på distribuerte enheter.
-
-Det betyr i praksis at hvis du ønsker å løse et I/O-begrenset problem, kan node hjelpe deg. F.eks en applikasjon som må snakke med flere databaser, utføre caching, load balancing, webservices, autentisering..
-
-### How to node?
-
 #### REPL
 Vise at man kan kjøre vilkårlige kommandoer i REPL. Definer en funksjon og kjør den.
 
