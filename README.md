@@ -3,7 +3,7 @@ Fagkveld Webstep 3. mars 2014
 Introduksjon
 ============
 
-Hei, og velkommen til åpen fagkveld her hos Webstep. Veldig kult at så mange hadde anledning og lyst til å komme, selv om dere fikk vite på forhånd hva vi skulle snakke om :)
+Hei og velkommen!
 
 I morgen er det nøyaktig ett år siden vi hadde en åpen fagkveld med tema JavaScript. Den gangen gikk vi også igjennom noen ulike verktøy og teknikker, men da var fokuset på nettleseren og ikke noe på Node. På det året er det veldig mye som har skjedd som gjør JavaScript mer aktuelt på serversiden.
 
