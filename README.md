@@ -7,7 +7,7 @@ Hei og velkommen!
 
 I morgen er det nøyaktig ett år siden vi hadde en åpen fagkveld med tema JavaScript. Den gangen gikk vi også igjennom noen ulike verktøy og teknikker, men da var fokuset på nettleseren og ikke noe på Node. På det året er det veldig mye som har skjedd som gjør JavaScript mer aktuelt på serversiden.
 
-SLIDE!
+SLIDE
 Etter at Ryan Dahl presenterte første versjon av Node.js i 2011 er det veldig mange rundt omkring som har lekt seg med Node.js for å finne ut hva man egentlig kan gjøre med det, og det siste året har det helt tatt av når det kommer til tooling for utviklere og mer avanserte workflows når man utvikler i JavaScript, både for klienten og på serversiden. Vi skal prøve å dekke litt av dette i kveld.
 
 La meg først bare fortelle litt om hva Node.js er, og hva det er som gjør det ganske forskjellig fra andre utviklingsplattformer. Hjemmesiden til Node sier det som står her SLIDE
