@@ -22,7 +22,7 @@ Akkurat som at node kan lese input fra konsoll, kan den også lese input fra fil
 
 program.js:
 ```javascript
-var greeting = 'Hello world!';
+var a = 'Hello world!';
 console.log(a);
 ```
 
