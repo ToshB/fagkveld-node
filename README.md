@@ -255,15 +255,31 @@ Kjør programmet og se at det oppfører seg likt.
 
 ## Deployment til Azure
 
-For at dette skal funke må man gjøre et engangsoppsett av konto i azure, konfigurere passord for git. Men etter det er det rett frem. Må først installere azure-cli, kan gjøres kjapt med `npm install azure-cli`, noe jeg ikke trenger nå. Deretter må man opprette azure website, og så pushe katalogen.
+Her anbefaler jeg å følge Microsoft sine tutorials, som du finner her: http://www.windowsazure.com/en-us/develop/nodejs/
 
-HUSK Å OPPDATERE PORT til `process.env.PORT`.
+Jeg fulgte følgende guide, som er for å gjøre en deployment fra Mac:    http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
+Den gir en fin innføring i hva man må gjøre for å kunne gjøre en git push deployment av en Node.js-applikasjon til en Azure website.
+
+Merk: For at applikasjonen du har laget frem til nå skal fungere på Azure er du nødt til å støtte dynamisk allokering av port. Du har nå kanskje hardkodet port 8080, som beskrevet i denne guiden. Dette må du endre i program.js til følgende:
+
+```javascript
+var port = process.env.PORT || 8080;
 ```
+Dette setter port til å være hva som eventuelt er definert i prosessens environment-variabel med navn PORT. Hvis det ikke er satt noe, typisk ved lokal utvikling, er det fallback til port 8080. Azure setter denne til ett eller annet (sannsynligvis noe annet enn 8080) når applikasjonen kjører i shared environment, og ruter requests som gjøres til nettstedet ditt til den porten.
+
+Etter at du har satt opp alt som guiden beskriver skal det holde å skrive følgende for å opprette en ny site (med git deployment), pushe koden du allerede har committet til master til azure, og så åpne siten i nettleseren.
+Dette forutsetter at filene dine ligger i et git-repository på lokal disk, og er committet. Dette er litt utenfor scopet til denne introen..
+
+
+```javascript
 azure site create webstepfagkveld --git
 git push azure master
 azure site browse (eller bare åpne i browser)
 ```
 
-#### Nyttige lenker
+## Et par nyttige lenker
+- [Video av presentasjonen](http://youtu.be/XFGvJwKfIcE)
+- [Nodejs.org](http://nodejs.org)
+- [Azure deployment på Mac](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/)
 - [High level style in JavaScript](https://gist.github.com/dominictarr/2401787)
