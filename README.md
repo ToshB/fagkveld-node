@@ -98,7 +98,7 @@ Når vi skal laste vår modul må vi prefixe den med "./" for å indikere at den
 
 I node er moduler laget så små som mulig, og vil man gjøre noe mer må man finne andre moduler som gjør dette eller skrive det selv.
 
-Hvis vi nå for eksempel ønsker å returnere forskjellige ting avhengig av hvilken URL brukeren besøkte, er vi nødt til å håndtere dette selv.
+Hvis vi nå for eksempel ønsker å returnere forskjellige ting avhengig av hvilken URL brukeren besøkte, er vi nødt til å håndtere dette selv, siden http-modulen ikke har denne funksjonaliteten.
 
 Oppdater callbacket til "http.createServer" til følgende:
 
@@ -110,7 +110,7 @@ var server = http.createServer(function(request, response){
   } else if(request.url == '/data') {
     var obj = { data: 'Hello' };
     response.writeHeader(200, { 'Content-Type': 'application/json' });
-    response.end(JSON.stringify(data));
+    response.end(JSON.stringify(obj));
   }
 });
 ```
