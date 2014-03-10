@@ -144,7 +144,7 @@ app.get('/', function(request, response){
 app.get('/data', function(request, response){
     var obj = { data: 'Hello' };
     response.writeHeader(200, { 'Content-Type': 'application/json' });
-    response.end(JSON.stringify(data));
+    response.end(JSON.stringify(obj));
 });
 
 // Lytt på den definerte porten
@@ -166,8 +166,8 @@ var hello = function(request, response){
 };
 
 var data = function(request, response){
-  response.writeHeader(200, { 'Content-Type': 'application/json'});
-  var obj = {data: 'hello'};
+  var obj = { data: 'Hello' };
+  response.writeHeader(200, { 'Content-Type': 'application/json' });
   response.end(JSON.stringify(obj));
 };
 
@@ -208,8 +208,8 @@ var hello = function(request, response){
 };
 
 var data = function(request, response){
-  response.writeHeader(200, { 'Content-Type': 'application/json'});
-  var obj = {data: 'hello'};
+  var obj = { data: 'Hello' };
+  response.writeHeader(200, { 'Content-Type': 'application/json' });
   response.end(JSON.stringify(obj));
 };
 
