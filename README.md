@@ -3,6 +3,8 @@ Fagkveld Webstep 6. mars 2014
 Node.js Intro
 ----------------
 
+Finner du noe som er utydelig eller feil i denne guiden, gjerne registrer et issue i GitHub-repositoriet, så skal jeg få rettet det opp.
+
 ### Installere Node.js
 Gå til http://nodejs.org og klikk installer. Da skal du få installert Node.js, og du vil få kommandoene node og npm tilgjengelig i konsollen.
 
